@@ -13,6 +13,7 @@ using std::endl;
 using key = sf::Keyboard;
 
 int innerWidth = 800, innerHeight = 600;
+//map created in Ascii mapper
 const int worldMap[mapWidth][mapHeight] =
 {
 	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,1,1},
