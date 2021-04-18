@@ -44,37 +44,13 @@ const int worldMap[mapWidth][mapHeight] =
 };
 
 
-sf::Vector2f matrix_rotation(sf::Vector2f vec, float value) {
 
-	return sf::Vector2f(
-		vec.x * std::cos(value) - vec.y * std::sin(value),
-		vec.x * std::sin(value) + vec.y * std::cos(value)
-	);
-
-}
-
-void setResolution()
-{
-	int usr;
-	cout << "1)1920x1200,2)800x600"<<endl<<"usr:";
-	std::cin >> usr;
-	if(usr == 1)
-	{
-		innerWidth = 1920;
-		innerHeight = 1200;
-	}else
-	{
-		innerWidth = 800;
-		innerHeight = 600;
-	}
-}
 
 
 int main()
-{	
-	setResolution();
+{	;
 	bool hasFocus = true;
-	sf::RenderWindow app(sf::VideoMode(innerWidth - 1, innerHeight), "Raycasting live from visual studio");
+	sf::RenderWindow app(sf::VideoMode(innerWidth - 1, innerHeight), "SFML - RAYCASTING");
 	sf::Event ev;
 	sf::Clock clock;
 	sf::Time fps;
@@ -113,6 +89,7 @@ int main()
 			default:
 				break;
 			}
+			
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))app.close();
 		}
 		app.clear(sf::Color(199, 199, 199));
@@ -196,24 +173,25 @@ int main()
 
 			switch (worldMap[int(mapPosition.x)][int(mapPosition.y)])
 			{
-			case 1: clr = sf::Color::White; break;
-			case 2: clr = sf::Color::Cyan; break;
-			case 3: clr = sf::Color::Green; break;
-			case 4: clr = sf::Color::Magenta; break;
-			case 9: clr = sf::Color::Yellow; break;
-			default: clr = sf::Color::Yellow;  break;
+			  case 1: clr = sf::Color::White; break;
+			  case 2: clr = sf::Color::Cyan; break;
+			  case 3: clr = sf::Color::Green; break;
+			  case 4: clr = sf::Color::Magenta; break;
+			  case 9: clr = sf::Color::Yellow; break;
+			  default: clr = sf::Color::Yellow;  break;
 			}
 
-			if (side == 1) {
-				clr = sf::Color(clr.r / 2, clr.g / 2, clr.b / 2);
+			if (side == 1)
+			{
+			  clr = sf::Color(clr.r / 2, clr.g / 2, clr.b / 2);
 			}
 
 			if (worldMap[int(position.x)][int(position.y)] == 9) app.close();
 
 			sf::Vertex line[2] =
 			{
-					sf::Vertex(sf::Vector2f(x, drawStart), clr),
-					sf::Vertex(sf::Vector2f(x, drawEnd), clr)
+				sf::Vertex(sf::Vector2f(x, drawStart), clr),
+                                sf::Vertex(sf::Vector2f(x, drawEnd), clr)
 			};
 
 			app.draw(line, 2, sf::Lines);
