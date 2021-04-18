@@ -1,9 +1,15 @@
-#include "preCompiled.hpp"
+#include <iostream>
+#include <cmath>
+#include <vector>
+#include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
+
 
 #define mapWidth 25
 #define mapHeight 25
 
-
+using std::cout;
+using std::endl;
 using key = sf::Keyboard;
 
 int innerWidth = 800, innerHeight = 600;
